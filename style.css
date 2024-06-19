@@ -1,0 +1,40 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: aqua;
+}
+
+/* Style the header */
+.header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: rgb(20, 233, 13);
+}
+
+.container {
+    padding: 2px;
+    text-align: center;
+    color: rgb(20, 233, 13);
+    font-size: 20px;
+}
+.btn{
+    color:blue;
+    padding: auto;
+    font-weight: 100;
+    background-color: aqua;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}s
+</style>
