@@ -1,27 +1,5 @@
 <?php
-include 'config.php';
-if(isset($_POST['submit'])){
-    $firstname=$_POST['firstname'];
-    $lastname=$_POST['lastname'];
-    $dob=$_POST['dob'];
-    $gender=$_POST['gender'];
-    $email=$_POST['email'];
-    $phone=$_POST['phone'];
-    $password=$_POST['password'];
-    $cpassword=$_POST['cpassword'];
 
-    //inserting data into the database
-    $sql="insert into `registration` (firstname,lastname,dob,gender,
-    email,phone,password)
-    values('$firstname','$lastname','$dob','$gender','$email','$phone','$password')";
-    $result=mysqli_query($con,$sql);
-
-    if($result){
-        echo"Data inserted successfully";
-    }else{
-        die(mysqli_error($con));
-    }
-}
 ?>
 
 
@@ -32,14 +10,8 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-</head>
 <link rel="stylesheet" href="style.css">
-<!create a html register page( first name, lastmname, email, dob=date, phone= tel, gender =select,password= password, and confirm password)
-style it use nice colour combination
-create a php and initiate a connectio to the database
-
-
-include config.php-->
+</head>
 <body>
     <h1 class="header">PoraTech Academy Registration</h1>
 
