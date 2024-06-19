@@ -1,8 +1,33 @@
 <?php
+// error_reporting(1,true);
 
+// include 'config.php';
+
+
+
+// if(isset($_POST['submit'])){
+//     $firstname=$_POST['firstname'];
+//     $lastname=$_POST['lastname'];
+//     $dob=$_POST['dob'];
+//     $gender=$_POST['gender'];
+//     $email=$_POST['email'];
+//     $phone=$_POST['phone'];
+//     $password=$_POST['password'];
+//     $cpassword=$_POST['cpassword'];
+
+//     //inserting data into the database
+//     $sql="insert into `registration` (firstname,lastname,dob,gender,
+//     email,phone,password)
+//     values('$firstname','$lastname','$dob','$gender','$email','$phone','$password')";
+//     $result=mysqli_query($con,$sql);
+
+//     if($result){
+//         echo"Data inserted successfully";
+//     }else{
+//         die(mysqli_error($con));
+//     }
+// }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
