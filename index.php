@@ -1,32 +1,20 @@
 <?php
-// error_reporting(1,true);
+include 'config.php';
+if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
 
-// include 'config.php';
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    $phone = $_POST['phoneNumber'];
+    $gender = $_POST['gender'];
+    $dob  = $_POST['dateOfBirth'];
+    $password = $_POST['passMe'];
+    $confirmPassword = $_POST['passMeTwo'];
 
-
-
-// if(isset($_POST['submit'])){
-//     $firstname=$_POST['firstname'];
-//     $lastname=$_POST['lastname'];
-//     $dob=$_POST['dob'];
-//     $gender=$_POST['gender'];
-//     $email=$_POST['email'];
-//     $phone=$_POST['phone'];
-//     $password=$_POST['password'];
-//     $cpassword=$_POST['cpassword'];
-
-//     //inserting data into the database
-//     $sql="insert into `registration` (firstname,lastname,dob,gender,
-//     email,phone,password)
-//     values('$firstname','$lastname','$dob','$gender','$email','$phone','$password')";
-//     $result=mysqli_query($con,$sql);
-
-//     if($result){
-//         echo"Data inserted successfully";
-//     }else{
-//         die(mysqli_error($con));
-//     }
-// }
+    if($password == $confirmPassword){
+        $password = password_hash($password, PASSWORD_DEFAULT);
+    };
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,39 +23,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class="header">PoraTech Academy Registration</h1>
+<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 mt-5">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <h1 class="text-success text-center mt-5 mb-5">Registration Page</h1>
+                        <div class="form-group">
+                            <label for="firstName">First Name</label><br>
+                            <input type="text" name="firstName" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label><br>
+                            <input type="text" name="lastName" id="lastName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label><br>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label><br>
+                            <input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" required> 
+                        </div>
+                        <div class="form-group">
+                            <label for="DOB">Date of Birth</label><br>
+                            <input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select name="gender" id="gender" class="form-control" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Others</option>
+                            </select>
 
-    <div class="container"> 
-     <form method="post">
-          <label for="fname">First name:</label><br>
-          <input type="text" id="fname" placeholder="Enter your first name" name="firstname" autocomplete="off"><br><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label><br>
+                            <input type="password" name="passMe" id="passMe" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Confirm Password</label><br>
+                            <input type="password" name="passMeTwo" id="passMeTwo" class="form-control" required>
+                        </div>
 
-          <label for="lname">Last name:</label><br>
-          <input type="text" id="lname" placeholder="Enter your last name" name="lastname" autocomplete="off"><br><br>       
+                        <div class="mt-5">
+                            <button type="submit" class="btn btn-success form-control">Register</button>
+                        </div>
+            </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
 
-          <label for="dob">Date of Birth:</label><br>
-          <input type="text" id="dob" placeholder="Enter your date of birth" name="dob" autocomplete="off"><br><br>
+    </div>
 
-          <label for="gender">Gender:</label><br>
-          <input type="text" id="gender" placeholder="Select your gender" name="gender" autocomplete="off"><br><br>
-          
-          <label for="email">Email:</label><br>
-          <input type="email" id="email" placeholder="Enter your email" name="email" autocomplete="off"><br><br>
-          
-          <label for="phone">phone</label><br>
-          <input type="text" id="phone" placeholder="Enter your phone number" name="phone" autocomplete="off"><br><br>
 
-          <label for="password">Password:</label><br>
-          <input type="password" id="password" placeholder="Enter your password" name="password" autocomplete="off"><br><br>
 
-          <label for="cpassword">Confirm Password:</label><br>
-          <input type="password" id="cpassword" placeholder="confirm password" name="cpassword" autocomplete="off"><br><br>
-          
-          <input type="submit" value="Submit" class="btn" name="submit">
-        </form> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+    crossorigin="anonymous"></script>
         </div>
 </body>
 </html>
